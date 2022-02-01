@@ -3,10 +3,14 @@ Shows QR for payments, or e GREEN CHECK when payment was done
 
 uses https://davidshimjs.github.io/qrcodejs/ for generating QR code
 
+```html
 <qr-pay href="URL"/>
+```
 (show QR of passed URL)
 
+```html
 <qr-pay href="URL" done />
+```
 (show DONE CHECK MARK)
 
 
