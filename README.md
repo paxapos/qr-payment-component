@@ -1,6 +1,8 @@
 # qr-payment-component
 Shows QR for payments, or e GREEN CHECK when payment was done
 
+uses https://davidshimjs.github.io/qrcodejs/ for generating QR code
+
 <qr-pay href="URL"/>
 (show QR of passed URL)
 
