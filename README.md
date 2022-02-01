@@ -1,7 +1,11 @@
 # qr-payment-component
-Shows QR for payments, whet it is done, property (HTML attribute) boolean "done" make QR hide, and show a GREEN CHECK.
+Shows QR for payments, or e GREEN CHECK when payment was done
+
+<qr-pay href="URL"/>
+(show QR of passed URL)
 
 <qr-pay href="URL" done />
+(show DONE CHECK MARK)
 
 
 show a 100% with of container QR bassed on the URL passed as param in href
