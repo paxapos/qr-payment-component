@@ -1,7 +1,21 @@
 {
   "name": "qr-pay",
   "version": "0.0.3",
-  "description": "Stencil Component Starter",
+  "author": {
+    "name" : "paxapos",
+    "email" : "info@paxapos.com",
+    "url" : "https://www.paxapos.com"
+  },
+  "contributors": [
+    {
+      "name": "Alejandro Vilar",
+      "email": "alevilar@paxapos.com"
+    },
+    {
+      "name": "Nicolas Peñaloza"
+    }
+  ],
+  "description": "QR Component for payments",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -12,7 +26,7 @@
   "unpkg": "dist/qr-pay/qr-pay.esm.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+    "url": "https://github.com/paxapos/qr-payment-component"
   },
   "files": [
     "dist/"

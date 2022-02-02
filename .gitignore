@@ -1,6 +1,9 @@
 www/
 loader/
 
+.editorconfig
+.prettierrc.json
+
 *~
 *.sw[mnpcod]
 *.log

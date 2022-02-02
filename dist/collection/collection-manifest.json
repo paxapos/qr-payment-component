@@ -1,0 +1,12 @@
+{
+  "entries": [
+    "./components/qr-pay/qr-pay.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "2.13.0",
+    "typescriptVersion": "4.3.5"
+  },
+  "collections": [],
+  "bundles": []
+}

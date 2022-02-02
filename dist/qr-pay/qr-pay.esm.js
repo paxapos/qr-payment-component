@@ -1,0 +1,1 @@
+import{p as r,b as e}from"./p-8b26eeb7.js";(()=>{const e=import.meta.url,p={};return""!==e&&(p.resourcesUrl=new URL(".",e).href),r(p)})().then((r=>e([["p-5fed75c6",[[1,"qr-pay",{href:[1],done:[4],qr:[32]}]]]],r)));
