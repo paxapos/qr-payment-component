@@ -7,8 +7,11 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface QrPay {
+        "background": string;
+        "color": string;
         "done": boolean;
         "href": string;
+        "width": number;
     }
 }
 declare global {
@@ -24,8 +27,11 @@ declare global {
 }
 declare namespace LocalJSX {
     interface QrPay {
+        "background"?: string;
+        "color"?: string;
         "done"?: boolean;
         "href"?: string;
+        "width"?: number;
     }
     interface IntrinsicElements {
         "qr-pay": QrPay;

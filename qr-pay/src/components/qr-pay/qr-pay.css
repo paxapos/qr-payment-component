@@ -2,20 +2,12 @@
   display: block;
 }
 
-.qrContainer img {
-  width: 100% !important;
-}
-
 .qrContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   contain: content;
-}
-
-.st0{
-  fill:#01A601;
 }
 
 #checksvg {
