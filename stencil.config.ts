@@ -1,4 +1,5 @@
 import { Config } from '@stencil/core';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export const config: Config = {
   namespace: 'qr-pay',
@@ -6,6 +7,11 @@ export const config: Config = {
     {
       type: 'dist',
     },
-
+    {
+      type: 'www',
+    },
   ],
+  rollupPlugins: {
+    after: [nodePolyfills()],
+  },
 };
