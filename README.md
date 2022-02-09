@@ -14,7 +14,7 @@ Generates a QR using href property and shows a checkmark if the done prop is pre
 
 How dows it works?
 
-'''html
+```html
 <script type="module">
    // import stencil js component
    import { defineCustomElements } from "https://cdn.jsdelivr.net/npm/qr-pay@0.0.4/dist/loader/index.es2017.js";
@@ -23,12 +23,11 @@ How dows it works?
 
 <!-- YOUR HTML STUFF -->
 
-<div class="qr-container">
-			<qr-pay id="qr" href="QR-PAY IS AWSOME" width=180></qr-pay>
-		</div>
-		<button onclick="done()">DONE</button>
-		<button onclick="undone()">UNDONE</button>
-</div>
+<qr-pay id="qr" href="ANY_TEXT_CANT_GO_HERE" width=180></qr-pay>
+
+<button onclick="done()">DONE</button>
+<button onclick="undone()">UNDONE</button>
+
 
 <script>
   // with JS change "done" property for showing the checkmark
@@ -36,7 +35,7 @@ How dows it works?
   const done = () => qr.setAttribute("done", true);
   const undone = () => qr.setAttribute("done", false);
 </script>
-'''
+```
 
 
 
