@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>QR PAY 0.0.3</title>
+
+        <script type="module">
+		    import { defineCustomElements } from "https://cdn.jsdelivr.net/npm/qr-pay@0.0.4/dist/loader/index.es2017.js";
+            defineCustomElements();
+		</script>
+
+		<link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+		<div class="qr-container">
+			<qr-pay id="qr" href="QR-PAY IS AWSOME" width=180></qr-pay>
+		</div>
+		<button onclick="done()">DONE</button>
+		<button onclick="undone()">UNDONE</button>
+		
+		<script>
+			const qr = document.getElementById("qr");
+			const done = () => qr.setAttribute("done", true);
+			const undone = () => qr.setAttribute("done", false);
+		</script>
+	</body>
+</html>
