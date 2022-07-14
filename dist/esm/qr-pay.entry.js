@@ -464,7 +464,7 @@ QRCode.prototype.save = function(file, callback) {
 }
 });
 
-const qrPayCss = ":host{display:block}.qrContainer img{width:100% !important}.qrContainer{display:flex;flex-direction:row;align-items:center;justify-content:center;contain:content}.st0{fill:#01A601}.checksvg{width:100%;animation:checkJoin 1s ease-in-out forwards}@keyframes checkJoin{0%{opacity:0}100%{transform:rotateZ(360deg);opacity:1}}";
+const qrPayCss = ":host{display:inline-block}.checksvg{width:90%;padding:10%;animation:checkJoin 1s ease-in-out forwards;box-sizing:border-box}@keyframes checkJoin{0%{opacity:0}100%{transform:rotateZ(360deg);opacity:1}}";
 
 let QrPay = class {
   constructor(hostRef) {

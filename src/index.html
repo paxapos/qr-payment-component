@@ -10,13 +10,31 @@
   </head>
   <body>
     <h2 style="text-align:center">CLICK ON THE QR</h2>
-    <qr-pay href="QR-PAY IS AWSOME" width=180 />
+    <qr-pay href="QR-PAY IS AWSOME" width=180></qr-pay>
 
+    <hr>
+    <label>Href</label>
+    <input name="href" />
   </body>
 
   <script>
-    const qrPay = document.getElementsByTagName("qr-pay");
-    qrPay[0].addEventListener("click", (el) => el.target.setAttribute("done", true));
+    const qrPay = document.getElementsByTagName("qr-pay")[0];
+    qrPay.addEventListener("click", (el) => el.target.setAttribute("done", true));
+
+
+    const input = document.querySelectorAll("input[name='href']")[0];
+    input.addEventListener('change', (ev) => qrPay.setAttribute("href", ev.target.value));
   </script>
+
+  <style type="text/css">
+    body{
+      text-align:center;
+    }
+    qr-pay{
+      margin: 0 auto;
+    }
+  </style>
+  
+
 
 </html>

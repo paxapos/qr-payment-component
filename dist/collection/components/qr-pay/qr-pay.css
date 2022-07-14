@@ -1,26 +1,12 @@
 :host {
-  display: block;
-}
-
-.qrContainer img {
-  width: 100% !important;
-}
-
-.qrContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  contain: content;
-}
-
-.st0{
-  fill:#01A601;
+  display: inline-block;
 }
 
 .checksvg {
-  width: 100%;
+  width: 90%;
+  padding: 10%;
   animation: checkJoin 1s ease-in-out forwards;
+  box-sizing: border-box;
 }
 
 @keyframes checkJoin {
