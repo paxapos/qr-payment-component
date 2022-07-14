@@ -551,10 +551,8 @@ const dispatchHooks = (hostRef, isInitialLoad) => {
     const endSchedule = createTime('scheduleUpdate', hostRef.$cmpMeta$.$tagName$);
     const instance = hostRef.$lazyInstance$ ;
     let promise;
-    if (isInitialLoad) {
-        {
-            promise = safeCall(instance, 'componentWillLoad');
-        }
+    {
+        promise = then(promise, () => safeCall(instance, 'componentWillRender'));
     }
     endSchedule();
     return then(promise, () => updateComponent(hostRef, instance, isInitialLoad));
@@ -688,6 +686,10 @@ const parsePropertyValue = (propValue, propType) => {
             // per the HTML spec, any string value means it is a boolean true value
             // but we'll cheat here and say that the string "false" is the boolean false
             return propValue === 'false' ? false : propValue === '' || !!propValue;
+        }
+        if (propType & 2 /* Number */) {
+            // force it to be a number
+            return parseFloat(propValue);
         }
         if (propType & 1 /* String */) {
             // could have been passed as a number or boolean

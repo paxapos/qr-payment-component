@@ -9,6 +9,14 @@
     <script nomodule src="/build/qr-pay.js"></script>
   </head>
   <body>
+    <h2 style="text-align:center">CLICK ON THE QR</h2>
     <qr-pay href="QR-PAY IS AWSOME" width=180 />
+
   </body>
+
+  <script>
+    const qrPay = document.getElementsByTagName("qr-pay");
+    qrPay[0].addEventListener("click", (el) => el.target.setAttribute("done", true));
+  </script>
+
 </html>

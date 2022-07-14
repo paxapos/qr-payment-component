@@ -7,13 +7,13 @@
 
 ## Properties
 
-| Property     | Attribute    | Description  | Type      | Default     |
-| ------------ | ------------ | ------------ | --------- | ----------- |
-| `color`      | `color`      |              | `string`  | `"#000000"` |
-| `done`       | `done`       |              | `boolean` | `false`     |
-| `href`       | `href`       |              | `string`  | `undefined` |
-| `background` | `background` |              | `string`  | `"#ffffff"` |
-| `width`      | `width`      |              | `number`  | `256`       |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `background` | `background` |             | `string`  | `"#ffffff"` |
+| `color`      | `color`      |             | `string`  | `"#000000"` |
+| `done`       | `done`       |             | `boolean` | `false`     |
+| `href`       | `href`       |             | `string`  | `undefined` |
+| `width`      | `width`      |             | `number`  | `256`       |
 
 
 ----------------------------------------------
