@@ -3,7 +3,10 @@ export declare class QrPay {
   done: boolean;
   background: string;
   color: string;
+  colorSuccess: string;
   width: number;
+  ecl: "H" | "M";
+  elSvgCheck: HTMLOrSVGElement;
   options: {
     content: string;
     width: string | number;
@@ -12,6 +15,5 @@ export declare class QrPay {
     background: string;
     ecl: string;
   };
-  componentWillRender(): Promise<void>;
   render(): any;
 }

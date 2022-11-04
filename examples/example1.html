@@ -13,6 +13,11 @@
 		</script>
 
 		<link rel="stylesheet" href="style.css">
+		<style>
+			body {
+				max-width: 400px;
+			}
+		</style>
     </head>
     <body>
 		<div class="qr-container">
@@ -20,11 +25,29 @@
 		</div>
 		<button onclick="done()">DONE</button>
 		<button onclick="undone()">UNDONE</button>
+
+		<label>HREF</label><input id="changeHref" />
+
+		<!--
+		@Prop() href: string;
+		@Prop() done: boolean = false;
+		@Prop() background: string = "#ffffff";
+		@Prop() color: string = "#000000";
+		@Prop() colorSuccess: string = "#005900";
+		@Prop() width: number = 256;
+		@Prop() ecl: "H"|"M" = "H";
+		-->
 		
 		<script>
 			const qr = document.getElementById("qr");
 			const done = () => qr.setAttribute("done", true);
 			const undone = () => qr.setAttribute("done", false);
+
+
+			document.getElementById("changeHref").addEventListener('change', (ev) => {
+				console.info("paso poas as");
+				qr.setAttribute("href", ev.target.value);
+			})
 		</script>
 	</body>
 </html>

@@ -2,11 +2,17 @@
   display: inline-block;
 }
 
-.checksvg {
+.qrcode svg{
+  margin: 0;
+  padding: 0;
+}
+
+svg.checksvg {
   width: 90%;
   padding: 10%;
   animation: checkJoin 1s ease-in-out forwards;
   box-sizing: border-box;
+  fill: #005200;
 }
 
 @keyframes checkJoin {

@@ -217,6 +217,31 @@ const setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags) => {
             classList.remove(...oldClasses.filter((c) => c && !newClasses.includes(c)));
             classList.add(...newClasses.filter((c) => c && !oldClasses.includes(c)));
         }
+        else if (memberName === 'style') {
+            // update style attribute, css properties and values
+            {
+                for (const prop in oldValue) {
+                    if (!newValue || newValue[prop] == null) {
+                        if (prop.includes('-')) {
+                            elm.style.removeProperty(prop);
+                        }
+                        else {
+                            elm.style[prop] = '';
+                        }
+                    }
+                }
+            }
+            for (const prop in newValue) {
+                if (!oldValue || newValue[prop] !== oldValue[prop]) {
+                    if (prop.includes('-')) {
+                        elm.style.setProperty(prop, newValue[prop]);
+                    }
+                    else {
+                        elm.style[prop] = newValue[prop];
+                    }
+                }
+            }
+        }
         else {
             // Set property if it exists and it's not a SVG
             const isComplex = isComplexType(newValue);
@@ -284,11 +309,7 @@ const createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
     let i = 0;
     let elm;
     let childNode;
-    if (newVNode.$text$ !== null) {
-        // create text node
-        elm = newVNode.$elm$ = doc.createTextNode(newVNode.$text$);
-    }
-    else {
+    {
         if (!isSvgMode) {
             isSvgMode = newVNode.$tag$ === 'svg';
         }
@@ -435,8 +456,7 @@ const patch = (oldVNode, newVNode) => {
     const oldChildren = oldVNode.$children$;
     const newChildren = newVNode.$children$;
     const tag = newVNode.$tag$;
-    const text = newVNode.$text$;
-    if (text === null) {
+    {
         {
             // test if we're rendering an svg element, or still rendering nodes inside of one
             // only add this to the when the compiler sees we're using an svg somewhere
@@ -456,11 +476,6 @@ const patch = (oldVNode, newVNode) => {
             updateChildren(elm, oldChildren, newVNode, newChildren);
         }
         else if (newChildren !== null) {
-            // no old child vnodes, but there are new child vnodes to add
-            if (oldVNode.$text$ !== null) {
-                // the old vnode was text, so be sure to clear it out
-                elm.textContent = '';
-            }
             // add the new vnode children
             addVnodes(elm, null, newVNode, newChildren, 0, newChildren.length - 1);
         }
@@ -471,11 +486,6 @@ const patch = (oldVNode, newVNode) => {
         if (isSvgMode && tag === 'svg') {
             isSvgMode = false;
         }
-    }
-    else if (oldVNode.$text$ !== text) {
-        // update the text content for the text only vnode
-        // and also only if the text is different than before
-        elm.data = text;
     }
 };
 const renderVdom = (hostRef, renderFnResults) => {
@@ -529,9 +539,6 @@ const dispatchHooks = (hostRef, isInitialLoad) => {
     const endSchedule = createTime('scheduleUpdate', hostRef.$cmpMeta$.$tagName$);
     const instance = hostRef.$lazyInstance$ ;
     let promise;
-    {
-        promise = then(promise, () => safeCall(instance, 'componentWillRender'));
-    }
     endSchedule();
     return then(promise, () => updateComponent(hostRef, instance, isInitialLoad));
 };
@@ -640,17 +647,6 @@ const appDidLoad = (who) => {
         addHydratedFlag(doc.documentElement);
     }
     nextTick(() => emitEvent(win, 'appload', { detail: { namespace: NAMESPACE } }));
-};
-const safeCall = (instance, method, arg) => {
-    if (instance && instance[method]) {
-        try {
-            return instance[method](arg);
-        }
-        catch (e) {
-            consoleError(e);
-        }
-    }
-    return undefined;
 };
 const then = (promise, thenFn) => {
     return promise && promise.then ? promise.then(thenFn) : thenFn();

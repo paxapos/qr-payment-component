@@ -9,7 +9,9 @@ export namespace Components {
     interface QrPay {
         "background": string;
         "color": string;
+        "colorSuccess": string;
         "done": boolean;
+        "ecl": "H"|"M";
         "href": string;
         "width": number;
     }
@@ -29,7 +31,9 @@ declare namespace LocalJSX {
     interface QrPay {
         "background"?: string;
         "color"?: string;
+        "colorSuccess"?: string;
         "done"?: boolean;
+        "ecl"?: "H"|"M";
         "href"?: string;
         "width"?: number;
     }
